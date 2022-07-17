@@ -1,0 +1,15 @@
+nav {
+    height: auto;
+}
+
+.active {
+    background-color: #dee5eb;
+    border-bottom: 2px solid #bfbfbf;
+}
+
+@media (max-width: 767px) {
+    .active {
+        background-color: transparent;
+        border-bottom: 0px;
+    }
+}

@@ -1,0 +1,119 @@
+/* Landing img */
+
+.landing {
+    align-items: center;
+    background-image: url('../imgs/landing.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    height: calc(100vh - 56px);
+    width: 100%;
+}
+
+.logo-container {
+    height: 40%;
+    width: 40%;
+}
+
+.landing-info h1 {
+    font-family: 'Patua One', cursive;
+}
+
+.landing-info p {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Register info */
+
+.card__register-info {
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.register-steps .card__register-step {
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.card__register-step h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Map */
+
+.mapouter {
+    height: 250px;
+    position: relative;
+    text-align: right;
+    width: 100%;
+}
+
+.gmap_canvas {
+    background: none !important;
+    height: 250px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.gmap_iframe {
+    height: 250px !important;
+}
+
+/* media for tablets and desktop */
+@media only screen and (min-width: 768px) {
+    /* Landing img */
+
+    .landing-info h1 {
+        width: 30px;
+        font-size: 40px;
+    }
+
+    .landing-info p {
+        font-size: 20px;
+        text-align: left;
+    }
+
+    /* Register info */
+
+    .card__register-info {
+        height: 100%;
+        margin-right: 50px;
+    }
+
+    .register-steps .card__register-step {
+        font-size: 14px;
+    }
+
+    /* Footer */
+
+    #footer {
+        font-size: 13px;
+    }
+
+    #footer h4 {
+        font-size: 13px;
+    }
+
+    .social-icons {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    /* Landing img */
+    .landing-info h1 {
+        font-size: 50px;
+    }
+
+    .landing-info p {
+        font-size: 25px;
+        text-align: left;
+    }
+}

@@ -1,0 +1,69 @@
+h1,
+h2 {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.card-action {
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    height: 200px;
+    width: 80%;
+    border-radius: 16px;
+    transition: all 0.4s;
+    color: #fff;
+    font-family: 'Patua One', cursive;
+    text-decoration: none;
+}
+
+.card-action:hover {
+    color: #c4c4c4;
+    transform: scale(1.1);
+}
+
+.card-action:hover h2 {
+    transform: translate(0px, -10px);
+    transition: all 0.4s;
+}
+
+.card-information {
+    background-image: url('../../imgs/cliente/informacion.jpg');
+}
+
+.card-cars {
+    background-image: url('../../imgs/cliente/autos.jpg');
+}
+
+.card-pays {
+    background-image: url('../../imgs/cliente/pagos.jpg');
+}
+
+.card-services {
+    background-image: url('../../imgs/cliente/servicios.jpg');
+}
+
+.card-action h2 {
+    font-size: 30px;
+    margin: 0;
+    transition: all 0.4s;
+}
+
+.card-action .card-background {
+    align-items: center;
+    border-radius: 16px;
+    display: grid;
+    transition: all 0.4s;
+}
+
+.card-action:hover .card-background {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    transition: all 0.4s;
+}
+
+@media only screen and (min-width: 768px) {
+    .card-action {
+        width: 60%;
+    }
+}
