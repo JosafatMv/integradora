@@ -26,8 +26,8 @@ public class ServletAuth extends HttpServlet {
             case "/login":
                 try {
                     if (request.getSession().getAttribute("rfc") != null){
-                        System.out.println("entra");
-                        request.getRequestDispatcher("home").forward(request,response);
+                        response.sendRedirect("home");
+                        return;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

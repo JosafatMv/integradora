@@ -17,7 +17,8 @@ public class ServletUser extends HttpServlet {
 
         try {
             if (request.getSession().getAttribute("rfc") == null){
-                request.getRequestDispatcher("login").forward(request,response);
+                response.sendRedirect("login");
+                return;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,7 +48,8 @@ public class ServletUser extends HttpServlet {
                         request.getRequestDispatcher("/view/cliente/information.jsp").forward(request,response);
                     }
                 } catch (Exception e) {
-                    response.sendRedirect(request.getContextPath()+"/view/cliente/index.jsp");
+                    response.sendRedirect("home");
+                    return;
                 }
 
                 break;
