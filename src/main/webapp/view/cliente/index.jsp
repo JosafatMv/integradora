@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
-                <a href="" class="card-action card-cars">
+                <a href="vehicles" class="card-action card-cars">
                     <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
                         <h2>MIS AUTOS</h2>
                     </div>

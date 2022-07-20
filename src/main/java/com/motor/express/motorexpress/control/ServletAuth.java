@@ -60,6 +60,11 @@ public class ServletAuth extends HttpServlet {
                 String password = request.getParameter("password") != null ? (request.getParameter("password")) : "";
                 String rol = "cliente";
 
+                if (email.equals("") || password.equals("")){
+                    response.sendRedirect("login?result-login=error-void");
+                    return;
+                }
+
                 Encrypt encrypt = new Encrypt();
                 try {
                     ServiceAuth auth = new ServiceAuth();
@@ -72,12 +77,14 @@ public class ServletAuth extends HttpServlet {
                             request.getSession().setAttribute("rfc",userCredentials.getRfc());
                             request.getSession().setAttribute("name",userCredentials.getName());
                             request.getSession().setAttribute("rol",userCredentials.getRol());
-                            response.sendRedirect(request.getContextPath()+"/home");
+                            response.sendRedirect("home");
                         } else {
-                            response.sendRedirect("login");
+                            response.sendRedirect("login?result-login=error-pass");
+                            return;
                         }
                     } else {
-                        response.sendRedirect("login");
+                        response.sendRedirect("login?result-login=error-email");
+                        return;
                     }
 
 

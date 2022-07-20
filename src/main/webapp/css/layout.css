@@ -36,8 +36,11 @@ nav img {
 
 #footer {
     background-color: #212529;
+    bottom: 0;
     color: #636b72;
     font-size: 10px;
+    position: absolute;
+    width: 100%;
 }
 
 #footer .footer-info {

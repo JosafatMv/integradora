@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Josafat
-  Date: 14/07/2022
-  Time: 09:43 p. m.
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 
@@ -37,12 +32,11 @@
             <img src="imgs/logo.png" alt="Logo de Motor Express" class="d-inline-block align-text-top">
             Motor Express
         </a>
-        <a href="login.jsp">
+        <a href="login.jsp active">
             Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
         </a>
     </div>
 </nav>
-
 
 <!-- Main content -->
 <main>
@@ -62,10 +56,28 @@
                     </button>
                 </div>
             </form>
+            <c:if test="${param['result-login']!=null}">
+                <c:if test="${param['result-login']=='error-void'}">
+                    <div class="alert alert-danger" role="alert">
+                        Ambos campos son requeridos
+                    </div>
+                </c:if>
+
+                <c:if test="${param['result-login']=='error-pass'}">
+                    <div class="alert alert-danger" role="alert">
+                        La contraseña es incorrecta
+                    </div>
+                </c:if>
+
+                <c:if test = "${param['result-login']=='error-email'}">
+                    <div class="alert alert-danger" role="alert">
+                        El correo no coincide con ninguna cuenta activa
+                    </div>
+                </c:if>
+            </c:if>
         </div>
     </div>
 </main>
-
 
 <footer id="footer">
 

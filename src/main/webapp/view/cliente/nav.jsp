@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="pagina" value="${requestScope['javax.servlet.forward.request_uri']}" />
 
 <nav class="navbar navbar-expand-md">
     <div class="container-fluid">
@@ -15,16 +16,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="information">Información</a>
+                    <a class="nav-link ${pagina.endsWith('/information') ? 'active' : ''}"
+                       aria-current="page" href="information">Información</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../mecanico/servicio.html">Servicios</a>
+                    <a class="nav-link ${pagina.endsWith('/services') ? 'active' : ''}"
+                       href="../mecanico/servicio.html">Servicios</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link ${pagina.endsWith('/vehicles') ? 'active' : ''}"
+                       href="vehicles">Vehiculos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Autos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pagos</a>
+                    <a class="nav-link ${pagina.endsWith('/payments') ? 'active' : ''}"
+                       href="#">Pagos</a>
                 </li>
 
             </ul>
