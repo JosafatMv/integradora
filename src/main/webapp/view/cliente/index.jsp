@@ -55,15 +55,14 @@
         </div>
         <div class="row align-items-center justify-content-center">
             <div class="col-12 col-md-6 d-flex justify-content-center mb-4">
-                <a href="" class="card-action card-pays">
+                <a href="payments" class="card-action card-pays">
                     <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
                         <h2>PAGOS</h2>
                     </div>
 
                 </a>
-            </div>
-            <div class="col-12 col-md-6 d-flex justify-content-center mb-md-4">
-                <a href="" class="card-action card-services">
+            </div>            <div class="col-12 col-md-6 d-flex justify-content-center mb-md-4">
+                <a href="services" class="card-action card-services">
                     <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
                         <h2>SERVICIOS</h2>
                     </div>

@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <!-- Custom css -->
     <link rel="stylesheet" href="css/layout.css">
@@ -32,7 +33,7 @@
             <img src="imgs/logo.png" alt="Logo de Motor Express" class="d-inline-block align-text-top">
             Motor Express
         </a>
-        <a href="login.jsp active">
+        <a href="login">
             Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
         </a>
     </div>
@@ -40,41 +41,68 @@
 
 <!-- Main content -->
 <main>
-    <div class='auth__container'>
-        <div class='auth__login'>
-            <h2 class='mb-4 text-center'>Login</h2>
-            <form action="login-check" method="POST">
-                <label class="form-label" for="email">Correo electronico</label>
-                <input class="form-control mb-3" id="email" type='email' name='email' placeholder='Ingrese el correo' />
+    <div class="landing text-center text-white container-fluid pb-5">
+        <div class="row justify-content-center align-items-center">
 
-                <label class="form-label" for="password">Contraseña</label>
-                <input class="form-control" id="password" name='password' type='password' placeholder='Contraseña' />
+            <div class="logo-container col-12 col-sm-6 my-3">
+                <img src="imgs/logo-landing.png" alt="Logo de Motor Express" class="img-fluid">
+            </div>
 
-                <div class='d-grid gap-2 mt-4'>
-                    <button type='submit' class="btn btn-primary">
-                        Ingresar
-                    </button>
-                </div>
-            </form>
-            <c:if test="${param['result-login']!=null}">
-                <c:if test="${param['result-login']=='error-void'}">
-                    <div class="alert alert-danger" role="alert">
-                        Ambos campos son requeridos
+            <div class="col-12 col-sm-6 text-start d-flex justify-content-center">
+                <form action="login-check" method="POST" class="px-4">
+
+                    <h1 class="text-center py-3">INICIAR SESIÓN</h1>
+
+                    <c:if test="${param['result-login']!=null}">
+                        <c:if test="${param['result-login']=='error-void'}">
+                            <div class="alert alert-danger mb-3" role="alert">
+                                Ambos campos son requeridos
+                            </div>
+                        </c:if>
+
+                        <c:if test="${param['result-login']=='error-pass'}">
+                            <div class="alert alert-danger mb-3" role="alert">
+                                La contraseña es incorrecta
+                            </div>
+                        </c:if>
+
+                        <c:if test = "${param['result-login']=='error-email'}">
+                            <div class="alert alert-danger mb-3" role="alert">
+                                El correo no coincide con ninguna cuenta activa
+                            </div>
+                        </c:if>
+                    </c:if>
+
+                    <div class="input-group mb-4">
+                            <span class="input-group-text" id="campo-correo">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                        <input type="email" class="form-control" placeholder="Correo" aria-label="Correo"
+                               aria-describedby="campo-correo" name="email" required>
                     </div>
-                </c:if>
 
-                <c:if test="${param['result-login']=='error-pass'}">
-                    <div class="alert alert-danger" role="alert">
-                        La contraseña es incorrecta
+                    <div class="input-group mb-4">
+                            <span class="input-group-text" id="campo-contraseña">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+                        <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña"
+                               aria-describedby="campo-contraseña" name="password" required>
                     </div>
-                </c:if>
 
-                <c:if test = "${param['result-login']=='error-email'}">
-                    <div class="alert alert-danger" role="alert">
-                        El correo no coincide con ninguna cuenta activa
+                    <div class="my-4 form-check form-check-reverse">
+                        <input type="checkbox" class="form-check-input p-2" id="isCliente">
+                        <label class="form-check-label" for="isCliente">No soy cliente</label>
                     </div>
-                </c:if>
-            </c:if>
+
+
+                    <div class="d-grid gap-2 text-center mb-4">
+                        <button type="submit" class="btn btn-primary mx-auto">Iniciar</button>
+                        <a href="">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                </form>
+            </div>
+
         </div>
     </div>
 </main>
@@ -118,6 +146,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
 </script>
+
+<!-- Fontawesome Icons -->
+<script src="https://kit.fontawesome.com/d35d510498.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

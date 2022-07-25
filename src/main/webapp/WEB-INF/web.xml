@@ -9,4 +9,25 @@
                 1440
             </session-timeout>
         </session-config>
+
+    <servlet>
+        <servlet-name>ServletClient</servlet-name>
+        <servlet-class>com.motor.express.motorexpress.control.ServletClient</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletClient</servlet-name>
+        <url-pattern>/payments</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletClient</servlet-name>
+        <url-pattern>/vehicles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletClient</servlet-name>
+        <url-pattern>/services</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletClient</servlet-name>
+        <url-pattern>/payment/*</url-pattern>
+    </servlet-mapping>
 </web-app>

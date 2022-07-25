@@ -1,0 +1,217 @@
+main p {
+    margin: 0;
+}
+
+.service-info {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 10px;
+}
+
+.service-name {
+    font-size: 18px;
+}
+
+/* .products {
+	overflow-x: auto;
+} */
+
+.products > .row::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.products > .row::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.products > .row::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.products > .row::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid #e9eff4; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.products > .row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.card-product {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 15px;
+    overflow-wrap: normal;
+}
+
+.card-product-img {
+    width: 60px;
+    height: 60px;
+}
+
+.card-product-img img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.card-product-body p {
+    font-size: 12px;
+    margin: 0px;
+}
+
+.card-product-stock {
+    background-color: #e6ebf0;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.car-card {
+    background: #d9d9d9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+.car-card-title,
+.car-card-footer {
+    padding: 5px 0px;
+}
+
+.car-card-title {
+    font-weight: bold;
+}
+
+.car-card-plates {
+    background-color: #fff;
+}
+
+.car-card p,
+.car-card h4 {
+    margin: 0px;
+}
+
+.car-card p {
+    font-size: 12px;
+}
+
+.car-card h4 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.payment-remainder div {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    border: 0px;
+    padding: 10px;
+}
+
+.payment-remainder .payment-remainder-unpaid {
+    color: #fb0505;
+}
+
+.payment-remainder .payment-remainder-paid {
+    color: #00b300;
+}
+
+.payment-remainder p {
+    color: #636b72;
+    font-size: 12px;
+}
+
+.payment-details {
+    height: 150px;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    padding-right: 5px;
+}
+
+.payment-details::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.payment-details::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.payment-details::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.payment-details::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid #e9eff4; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+    .service-info p {
+        font-size: 18px;
+    }
+
+    .service-info .service-name {
+        font-size: 20px;
+    }
+
+    .card-product-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .card-product-img img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .card-product-body p {
+        font-size: 14px;
+    }
+
+    .car-card p {
+        font-size: 16px;
+    }
+
+    .car-card h4 {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .card-product-body p {
+        font-size: 14px;
+    }
+
+    .card-product-stock span {
+        font-size: 12px;
+    }
+
+    .payment-details {
+        height: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-product-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card-product-img img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card-product-body p {
+        font-size: 16px;
+    }
+
+    .card-product-stock span {
+        font-size: 18px;
+    }
+}

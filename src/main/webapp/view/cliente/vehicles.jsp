@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Información</title>
+    <title>Vehiculos</title>
 
     <!-- Bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -49,15 +49,15 @@
                     <div class="car-card">
                         <div class="car-card-title text-center">
                             <p class="card-title">
-                                <c:out value="${vehicle.brand}"/> <c:out value="${vehicle.model}"/> <c:out value="${vehicle.year}"/>
+                                    ${vehicle.brand} ${vehicle.model} ${vehicle.year}
                             </p>
                         </div>
                         <div class="car-card-plates text-center py-2 d-flex align-items-center justify-content-center">
-                            <h4><c:out value="${vehicle.brand}"/></h4>
+                            <h4>${vehicle.plates}</h4>
                         </div>
                         <div class="car-card-footer text-center">
                             <p>
-                                Color: <c:out value="${vehicle.color}"/>
+                                Color: ${vehicle.color}
                             </p>
                         </div>
                     </div>
@@ -79,9 +79,6 @@
 
 <!-- Fontawesome Icons -->
 <script src="https://kit.fontawesome.com/d35d510498.js" crossorigin="anonymous"></script>
-
-<!-- Custom script -->
-<script src="js/cliente/information.js"></script>
 
 </body>
 </html>

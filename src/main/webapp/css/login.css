@@ -1,16 +1,80 @@
-.auth__container {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
+/* Landing img */
+
+.landing {
+    align-items: center;
+    background-image: url('../imgs/landing.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    min-height: calc(100vh - 56px);
+    width: 100%;
 }
 
-.auth__login {
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-    width: 400px;
+.logo-container {
+    height: 50%;
+    width: 50%;
+}
+
+form {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 5px;
+    color: #000000;
+    width: 100%;
+}
+
+form p,
+form label {
+    color: #636b72;
+    font-size: 14px;
+}
+
+form h1 {
+    font-family: 'Bebas Neue', cursive;
+}
+
+form input[type='email'],
+form input[type='password'] {
+    font-size: 14px;
+}
+
+form button[type='submit'] {
+    background-color: #212529;
+    color: #ffffff;
+    border: none;
+    width: 80%;
+}
+
+form button[type='submit']:hover,
+form button[type='submit']:active,
+form button[type='submit']:focus {
+    background-color: #343a40;
+    border: none;
+    box-shadow: none;
+}
+
+form a {
+    color: #636b72;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* media for tablets and desktop */
+@media only screen and (min-width: 768px) {
+    .logo-container {
+        height: 40%;
+        width: 40%;
+    }
+
+    form {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    form {
+        width: 60%;
+    }
 }

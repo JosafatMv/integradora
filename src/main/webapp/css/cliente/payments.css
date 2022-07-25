@@ -1,0 +1,188 @@
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 35px;
+}
+
+.filter-tab {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 10px 0px 10px 0px;
+}
+
+.filter-tab button {
+    color: #000000;
+    text-decoration: none;
+    border: 0px;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 0px 10px 20px;
+}
+
+.filter-tab .tab-active {
+    background-color: #e9eff4;
+}
+
+.filter-active {
+    display: block;
+}
+
+.filter-hide {
+    display: none;
+}
+
+.status-symbology p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.status-paid .circle-paid,
+.status-unpaid .circle-unpaid {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.circle-paid,
+.service-status-paid {
+    background-color: #00b300;
+}
+
+.circle-unpaid,
+.service-status-unpaid {
+    background-color: #ff0000;
+}
+.car-card {
+    background: #d9d9d9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 16px 16px;
+}
+
+.car-card-title,
+.car-card-footer {
+    padding: 5px 0px;
+}
+
+.car-card-title {
+    font-weight: bold;
+}
+
+.car-card-plates {
+    background-color: #fff;
+}
+
+.car-card p,
+.car-card h4 {
+    margin: 0px;
+}
+
+.car-card p {
+    font-size: 12px;
+}
+
+.car-card h4 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.service-info {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* border-radius: 16px; */
+}
+
+.service-info p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.service-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.service-info-title p {
+    font-weight: bold;
+}
+
+.service-info-content p {
+    font-size: 14px;
+}
+
+.service-total span {
+    font-weight: bold;
+}
+
+.arrow-container {
+    background-color: #d9d9d9;
+    border-radius: 16px 16px 0px 0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.arrow-container .fa-caret-down {
+    font-size: 40px;
+    color: #9f9f9f;
+}
+
+@media (min-width: 576px) {
+    .car-card {
+        border-radius: 0px 16px 16px 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    .filter-tab {
+        height: 400px;
+    }
+
+    .filter-tab button {
+        font-size: 16px;
+    }
+
+    .profile-filter .filter-container {
+        height: 400px;
+    }
+
+    .car-card p {
+        font-size: 16px;
+    }
+
+    .car-card {
+        height: 110px;
+    }
+
+    .service-info {
+        height: 110px;
+    }
+
+    .arrow-container {
+        height: 110px;
+        border-radius: 16px 0px 0px 16px;
+    }
+
+    .arrow-container .fa-caret-left {
+        color: #9f9f9f;
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .filter-tab button {
+        font-size: 20px;
+    }
+
+    .service-info-title p {
+        font-size: 16px;
+    }
+
+    .service-info-content p {
+        font-size: 16px;
+    }
+}
