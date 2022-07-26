@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="context" value="${pageContext.request.contextPath}" />
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!doctype html>
 <html lang="en">
 
@@ -47,56 +47,63 @@
 
             <div class="col-md-3 col-12">
                 <div class="filter-tab py-4 mb-4">
-                    <button class="tab-active mb-3 d-block text-start">Todos</button>
-                    <button class="mb-3 d-block text-start">Finalizados</button>
-                    <button class="d-block text-start">Sin pagar</button>
+                    <button class="tab-active mb-3 d-block text-start" id="all">Todos</button>
+                    <button id="completed" class="mb-3 d-block text-start">Finalizados</button>
+                    <button id="uncompleted" class="d-block text-start">En proceso</button>
                 </div>
             </div>
 
             <div class="col-md-9 col-12">
-                <div class="col-12 mb-4">
-                    <div class="row g-md-0">
 
-                        <div class="col-12 col-md-4">
-                            <div class="car-card">
-                                <div class="car-card-title text-center">
-                                    <p class="card-title">Nissan Versa 2020</p>
+                <div class="row">
+                    <c:forEach items="${histories}" var="history">
+                        <div class="col-12 mb-4 ${history.status=='Finalizado' ? "car-card-paid" : "car-card-unpaid"}">
+                            <div class="row g-md-0">
+
+                                <div class="col-12 col-md-4">
+                                    <div class="car-card">
+                                        <div class="car-card-title text-center">
+                                            <p class="card-title">${history.vehicle.brand} ${history.vehicle.model} ${history.vehicle.year}</p>
+                                        </div>
+                                        <div
+                                                class="car-card-plates text-center py-2 d-flex align-items-center justify-content-center">
+                                            <h4>${history.vehicle.plates}</h4>
+                                        </div>
+                                        <div class="car-card-footer text-center">
+                                            <p>
+                                                Color: ${history.vehicle.color}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div
-                                        class="car-card-plates text-center py-2 d-flex align-items-center justify-content-center">
-                                    <h4>A55-06-27</h4>
+
+                                <div class="col-12 col-md-7">
+                                    <div class="service-info p-3 p-md-2">
+                                        <div class="service-info-title d-flex align-items-center mb-2">
+                                            <p>${history.service.name}</p>
+                                        </div>
+                                        <div class="service-info-content">
+                                            <p class="mb-md-1">
+                                                Tu vehículo ha pasado a la etapa de: <span
+                                                    class="fw-bold">${history.status}</span>
+                                            </p>
+                                            <p>${history.lastUpdateDate} · ${history.lastUpdateTime} hrs</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="car-card-footer text-center">
-                                    <p>
-                                        Color: rojo
-                                    </p>
+
+                                <div class="col-12 col-md-1">
+                                    <a href="#"
+                                       class="arrow-container d-flex align-items-center justify-content-center">
+                                        <i class="fa-solid fa-caret-right d-none d-md-block"></i>
+                                        <i class="fa-solid fa-caret-down d-md-none"></i>
+                                    </a>
                                 </div>
+
                             </div>
+
                         </div>
-
-                        <div class="col-12 col-md-7">
-                            <div class="service-info p-3 p-md-2">
-                                <div class="service-info-title d-flex align-items-center mb-2">
-                                    <p>Cambio de luces y los faros</p>
-                                </div>
-                                <div class="service-info-content">
-                                    <p class="mb-md-1">
-                                        Tu vehículo ha pasado a la etapa de: <span class="fw-bold">Realizando</span>
-                                    </p>
-                                    <p>17/07/2022 · 13:53 hrs</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-1">
-                            <a href="#" class="arrow-container d-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-caret-right d-none d-md-block"></i>
-                                <i class="fa-solid fa-caret-down d-md-none"></i>
-                            </a>
-                        </div>
-
-                    </div>
-
+                    </c:forEach>
                 </div>
 
             </div>
@@ -115,6 +122,9 @@
 
 <!-- Fontawesome Icons -->
 <script src="https://kit.fontawesome.com/d35d510498.js" crossorigin="anonymous"></script>
+
+<!-- Custom JS -->
+<script src="js/cliente/payments.js"></script>
 
 
 </body>

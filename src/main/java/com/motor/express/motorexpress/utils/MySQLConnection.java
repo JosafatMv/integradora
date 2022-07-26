@@ -9,7 +9,7 @@ public class MySQLConnection {
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/taller","root","root");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/sigsa","root","root");
         } catch (Exception e) {
             e.printStackTrace();
         }

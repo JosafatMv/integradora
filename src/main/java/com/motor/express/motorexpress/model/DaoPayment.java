@@ -1,6 +1,7 @@
 package com.motor.express.motorexpress.model;
 
 import com.motor.express.motorexpress.utils.MySQLConnection;
+import com.motor.express.motorexpress.utils.StatusName;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,8 +19,13 @@ public class DaoPayment {
 
         try (
                 Connection con = MySQLConnection.getConnection();
-                PreparedStatement pstm = con.prepareStatement("SELECT * FROM VistaHistorialServicios WHERE rfc = ?")
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM VistaHistorialServicios WHERE rfc = ?");
+                PreparedStatement pstm2 = con.prepareStatement("SELECT * FROM ProductosUsados WHERE idHistorial = ?");
+                PreparedStatement pstm3 = con.prepareStatement("SELECT * FROM UltimoStatus WHERE historiales_id = ?")
+
         ){
+
+            StatusName statusName = new StatusName();
 
             pstm.setString(1, rfc);
             ResultSet rs = pstm.executeQuery();
@@ -41,12 +47,28 @@ public class DaoPayment {
                 payment.setService(service);
 
                 payment.setHistoryId(rs.getString("idHistorial"));
+
+                pstm2.setString(1, payment.getHistoryId());
+                ResultSet rs2 = pstm2.executeQuery();
+                int sum = 0;
+                while(rs2.next()){
+                    sum+=rs2.getInt("cantidad");
+                }
+                payment.setProductsUsed(sum);
+
+                pstm3.setString(1, payment.getHistoryId());
+                ResultSet rs3 = pstm3.executeQuery();
+                int idStatus = 0;
+                while(rs3.next()){
+                    idStatus=rs3.getInt("statusId");
+                }
+                payment.setStatus(statusName.getStatusName(idStatus));
+
                 payment.setTotalAmount(rs.getInt("monto_total"));
-                payment.setProductsUsed(rs.getInt("ProductosUtilizados"));
                 payment.setMechanic(rs.getString("NombreMecanico"));
                 payment.setStartDate(rs.getDate("fecha_inicio"));
                 payment.setEndDate(rs.getDate("fecha_fin"));
-                payment.setStatus(rs.getString("status"));
+
 
                 payments.add(payment);
             }
@@ -70,8 +92,11 @@ public class DaoPayment {
                 Connection con = MySQLConnection.getConnection();
                 PreparedStatement pstm = con.prepareStatement("SELECT * FROM productosUsados WHERE idHistorial = ?");
                 PreparedStatement pstm2 = con.prepareStatement("SELECT * FROM ServicioDado WHERE idHistorial = ?");
-                PreparedStatement pstm3 = con.prepareStatement("SELECT * FROM VistaHistorialServicios WHERE idHistorial = ?")
+                PreparedStatement pstm3 = con.prepareStatement("SELECT * FROM VistaHistorialServicios WHERE idHistorial = ?");
+                PreparedStatement pstm4 = con.prepareStatement("SELECT * FROM UltimoStatus WHERE historiales_id = ?")
         ){
+
+            StatusName statusName = new StatusName();
 
             pstm.setInt(1, historyId);
             pstm2.setInt(1, historyId);
@@ -116,13 +141,20 @@ public class DaoPayment {
                 vehicle.setColor(rs3.getString("color"));
 
                 payment.setVehicle(vehicle);
+
+                pstm4.setInt(1, historyId);
+                ResultSet rs4 = pstm4.executeQuery();
+                int idStatus = 0;
+                while(rs4.next()){
+                    idStatus=rs4.getInt("statusId");
+                }
+                payment.setStatus(statusName.getStatusName(idStatus));
+
                 payment.setTotalAmount(rs3.getFloat("monto_total"));
-                payment.setProductsUsed(rs3.getInt("ProductosUtilizados"));
                 payment.setRfc(rs3.getString("rfc"));
-                payment.setMechanic(rs.getString("NombreMecanico"));
-                payment.setStartDate(rs.getDate("fecha_inicio"));
-                payment.setEndDate(rs.getDate("fecha_fin"));
-                payment.setStatus(rs.getString("status"));
+                payment.setMechanic(rs3.getString("NombreMecanico"));
+                payment.setStartDate(rs3.getDate("fecha_inicio"));
+                payment.setEndDate(rs3.getDate("fecha_fin"));
             }
 
         } catch (Exception e) {

@@ -1,6 +1,8 @@
 package com.motor.express.motorexpress.control;
 
+import com.motor.express.motorexpress.model.BeanHistory;
 import com.motor.express.motorexpress.model.BeanPayment;
+import com.motor.express.motorexpress.model.BeanTracking;
 import com.motor.express.motorexpress.model.BeanVehicle;
 
 import javax.servlet.*;
@@ -104,7 +106,11 @@ public class ServletClient extends HttpServlet {
                     String rfc = (String) request.getSession().getAttribute("rfc");
                     String rol = (String) request.getSession().getAttribute("rol");
 
+                    ServiceHistory historyService = new ServiceHistory();
+                    List<BeanHistory> histories = historyService.getClientHistories(rol,rfc);
+
                     if (request.getSession().getAttribute("rol").equals("cliente")){
+                        request.setAttribute("histories",histories);
                         request.getRequestDispatcher("/view/cliente/services.jsp").forward(request,response);
                     }
 
