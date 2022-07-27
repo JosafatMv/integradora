@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Josafat
-  Date: 21/07/2022
-  Time: 11:42 a. m.
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
@@ -14,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Detalle de pago</title>
+    <title>Historiales</title>
 
     <!-- Bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -93,7 +87,7 @@
                                 </div>
 
                                 <div class="col-12 col-md-1">
-                                    <a href="#"
+                                    <a href="${context}/history/${history.historyId}"
                                        class="arrow-container d-flex align-items-center justify-content-center">
                                         <i class="fa-solid fa-caret-right d-none d-md-block"></i>
                                         <i class="fa-solid fa-caret-down d-md-none"></i>

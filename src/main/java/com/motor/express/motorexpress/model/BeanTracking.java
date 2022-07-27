@@ -1,18 +1,21 @@
 package com.motor.express.motorexpress.model;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class BeanTracking {
     private int statusId;
-    private Date lastUpdate;
+    private Date lastUpdateDate;
+    private Time lastUpdateTime;
     private String statusName;
 
     public BeanTracking() {
     }
 
-    public BeanTracking(int statusId, Date lastUpdate, String statusName) {
+    public BeanTracking(int statusId, Date lastUpdateDate, Time lastUpdateTime, String statusName) {
         this.statusId = statusId;
-        this.lastUpdate = lastUpdate;
+        this.lastUpdateDate = lastUpdateDate;
+        this.lastUpdateTime = lastUpdateTime;
         this.statusName = statusName;
     }
 
@@ -24,12 +27,20 @@ public class BeanTracking {
         this.statusId = statusId;
     }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
+    public Date getLastUpdateDate() {
+        return lastUpdateDate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
+    public void setLastUpdateDate(Date lastUpdateDate) {
+        this.lastUpdateDate = lastUpdateDate;
+    }
+
+    public Time getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Time lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
     }
 
     public String getStatusName() {

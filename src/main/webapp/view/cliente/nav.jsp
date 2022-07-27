@@ -21,8 +21,8 @@
                        aria-current="page" href="${context}/information">Información</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ${pagina.endsWith('/services') ? 'active' : ''}"
-                       href="${context}/services">Servicios</a>
+                    <a class="nav-link ${pagina.endsWith('/histories') ? 'active' : ''}"
+                       href="${context}/histories">Historiales</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link ${pagina.endsWith('/vehicles') ? 'active' : ''}"

@@ -62,7 +62,7 @@
 
                 </a>
             </div>            <div class="col-12 col-md-6 d-flex justify-content-center mb-md-4">
-                <a href="services" class="card-action card-services">
+                <a href="histories" class="card-action card-services">
                     <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
                         <h2>SERVICIOS</h2>
                     </div>

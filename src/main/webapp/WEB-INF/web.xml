@@ -20,14 +20,18 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletClient</servlet-name>
+        <url-pattern>/payment/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletClient</servlet-name>
         <url-pattern>/vehicles</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletClient</servlet-name>
-        <url-pattern>/services</url-pattern>
+        <url-pattern>/histories</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletClient</servlet-name>
-        <url-pattern>/payment/*</url-pattern>
+        <url-pattern>/history/*</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -7,7 +7,7 @@ public class StatusName {
 
         switch (idStatus){
             case 1:
-                name = "Iniciado";
+                name = "Ingresado";
                 break;
             case 2:
                 name = "Realizando";

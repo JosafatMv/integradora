@@ -16,4 +16,9 @@ public class ServiceHistory {
         return  histories;
 
     }
+
+    public BeanHistory getHistory(String rol, int historyId) {
+        DaoHistory daoHistory = new DaoHistory();
+        return daoHistory.getHistory(rol,historyId);
+    }
 }
