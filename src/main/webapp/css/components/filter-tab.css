@@ -1,0 +1,46 @@
+.filter-tab {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 10px 0px 10px 0px;
+}
+
+.filter-tab button {
+    color: #000000;
+    text-decoration: none;
+    border: 0px;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 0px 10px 20px;
+}
+
+.filter-tab .tab-active {
+    background-color: #e9eff4;
+}
+
+.filter-active {
+    display: block;
+}
+
+.filter-hide {
+    display: none;
+}
+
+@media (min-width: 768px) {
+
+    .filter-tab {
+        height: 400px;
+    }
+
+    .filter-tab button {
+        font-size: 16px;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .filter-tab button {
+        font-size: 20px;
+    }
+
+}

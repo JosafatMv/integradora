@@ -54,23 +54,12 @@
                     <h1 class="text-center py-3">INICIAR SESIÓN</h1>
 
                     <c:if test="${param['result-login']!=null}">
-                        <c:if test="${param['result-login']=='error-void'}">
+                        <c:if test="${param['result-login']=='error'}">
                             <div class="alert alert-danger mb-3" role="alert">
-                                Ambos campos son requeridos
+                                La contraseña o el correo son invalidos.
                             </div>
                         </c:if>
 
-                        <c:if test="${param['result-login']=='error-pass'}">
-                            <div class="alert alert-danger mb-3" role="alert">
-                                La contraseña es incorrecta
-                            </div>
-                        </c:if>
-
-                        <c:if test = "${param['result-login']=='error-email'}">
-                            <div class="alert alert-danger mb-3" role="alert">
-                                El correo no coincide con ninguna cuenta activa
-                            </div>
-                        </c:if>
                     </c:if>
 
                     <div class="input-group mb-4">

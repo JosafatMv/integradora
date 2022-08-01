@@ -35,6 +35,15 @@ nav img {
     width: 24px;
 }
 
+h1 {
+    font-family: 'Bebas Neue', cursive;
+}
+
+main p {
+    margin: 0px;
+    padding: 0px;
+}
+
 /* Footer */
 
 #footer {

@@ -1,0 +1,38 @@
+
+.user-info {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px 16px 0px 0px;
+}
+
+.user-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.arrow-container {
+    background-color: #d9d9d9;
+    border-radius: 0px 0px 16px 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.arrow-container .fa-caret-down {
+    font-size: 40px;
+    color: #9f9f9f;
+}
+
+@media (min-width: 768px) {
+    .user-info {
+        border-radius: 16px 0px 0px 16px;
+    }
+
+    .arrow-container {
+        height: 98px;
+        border-radius: 0px 16px 16px 0px;
+    }
+
+    .arrow-container .fa-caret-right {
+        color: #9f9f9f;
+        font-size: 40px;
+    }
+}
