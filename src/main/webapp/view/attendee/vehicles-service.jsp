@@ -20,6 +20,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
+    <!-- toastify js -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <!-- Custom css -->
     <link rel="stylesheet" href="${context2}/css/layout.css">
     <link rel="stylesheet" href="${context2}/css/components/buttons.css">
@@ -126,9 +129,15 @@
 <!-- Sweetalerts -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- Toastify js -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
 <!-- Custom script -->
 <script src="js/attendee/vehicles-service.js"></script>
 <script src="js/components/filterTab.js"></script>
+<script src="js/components/notify.js"></script>
+<script src="js/attendee/change-status.js"></script>
 
 </body>
 

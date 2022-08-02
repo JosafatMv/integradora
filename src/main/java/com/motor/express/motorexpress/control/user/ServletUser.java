@@ -49,12 +49,12 @@ public class ServletUser extends HttpServlet {
                     BeanUser user = userService.getUser(rfc,rol);
                     request.setAttribute("user",user);
 
-                    if (request.getSession().getAttribute("rol").equals("cliente")){
+                    if (rol.equals("cliente")){
                         request.getRequestDispatcher("/view/cliente/information.jsp").forward(request,response);
                     }
 
-                    if (request.getSession().getAttribute("rol").equals("asistente")){
-                        request.getRequestDispatcher("/view/cliente/information.jsp").forward(request,response);
+                    if (rol.equals("asistente")){
+                        request.getRequestDispatcher("/view/attendee/information.jsp").forward(request,response);
                     }
 
                 } catch (Exception e) {

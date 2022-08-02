@@ -169,7 +169,7 @@ public class DaoHistory {
                 history.setVehicle(vehicle);
                 history.setHistoryId(rs.getInt("idHistorial"));
 
-                if (history.getHistoryId() != 0){
+                if (history.getHistoryId() != 0) {
                     pstm2.setInt(1, history.getHistoryId());
                     ResultSet rs2 = pstm2.executeQuery();
                     int idStatus = 0;
@@ -179,7 +179,7 @@ public class DaoHistory {
                     history.setStatus(statusName.getStatusName(idStatus));
                 }
 
-                if (!Objects.equals(history.getStatus(), "Finalizado")){
+                if (!Objects.equals(history.getStatus(), "Finalizado")) {
                     histories.add(history);
                 }
             }
@@ -189,5 +189,42 @@ public class DaoHistory {
         }
 
         return histories;
+    }
+
+    public boolean startService(String rfcMechanic, String plates) {
+        boolean result = false;
+
+        try
+                (Connection con = MySQLConnection.getConnection();
+                 PreparedStatement pstm = con.prepareStatement("Call PAInsertarHistorial(?,?);");
+                ) {
+            pstm.setString(1, plates);
+            pstm.setString(2, rfcMechanic);
+
+            result = pstm.executeUpdate() == 1;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public boolean endService(int historyId) {
+        boolean result = false;
+
+        try
+                (Connection con = MySQLConnection.getConnection();
+                 PreparedStatement pstm = con.prepareStatement("Call PaCambiarStatus('Finalizado', ?);");
+                ) {
+            pstm.setInt(1, historyId);
+
+            result = pstm.executeUpdate() == 1;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 }

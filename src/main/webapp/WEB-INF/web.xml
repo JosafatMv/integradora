@@ -74,6 +74,10 @@
         <servlet-name>ServletAttendee</servlet-name>
         <url-pattern>/change-status</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAttendee</servlet-name>
+        <url-pattern>/list-services</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

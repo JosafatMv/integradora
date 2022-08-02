@@ -26,4 +26,14 @@ public class ServiceHistory {
         DaoHistory daoHistory = new DaoHistory();
         return daoHistory.getHistories();
     }
+
+    public boolean startService(String rfcMechanic, String plates) {
+        DaoHistory daoHistory = new DaoHistory();
+        return daoHistory.startService(rfcMechanic,plates);
+    }
+
+    public boolean endService(int historyId) {
+        DaoHistory daoHistory = new DaoHistory();
+        return daoHistory.endService(historyId);
+    }
 }

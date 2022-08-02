@@ -21,8 +21,7 @@
 
     <!-- Custom css -->
     <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/cliente/index.css">
-    <link rel="stylesheet" href="css/cliente/layout.css">
+    <link rel="stylesheet" href="css/attendee/index.css">
 </head>
 
 <body>
@@ -32,7 +31,69 @@
 
 <!-- Main content -->
 <main class="my-5">
+    <h1 class="text-center mb-4">¿Qué quieres consultar?</h1>
 
+    <div class="container">
+        <div class="row align-items-center justify-content-center mb-md-5">
+            <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+                <a href="information" class="card-action card-information">
+                    <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
+                        <h2>MI INFORMACIÓN</h2>
+                    </div>
+
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="row gx-md-3 justify-content-center align-items-center">
+                    <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+                        <a href="client-register" class="card-action card-register-client">
+                            <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
+                                <h2>REGISTRAR CLIENTE</h2>
+                            </div>
+
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+                        <a href="vehicle-register" class="card-action card-register-vehicle">
+                            <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
+                                <h2>REGISTRAR VEHICULO</h2>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="row gx-md-3 justify-content-center align-items-center">
+                    <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+                        <a href="list-clients" class="card-action card-list-clients">
+                            <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
+                                <h2>VISUALIZAR CLIENTES</h2>
+                            </div>
+
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+                        <a href="list-services" class="card-action card-list-catalogue">
+                            <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
+                                <h2>VISUALIZAR CATALOGO</h2>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center mb-md-4">
+                <a href="vehicles-service" class="card-action card-services">
+                    <div class="bg-black bg-opacity-75 w-100 h-100 text-center card-background">
+                        <h2>SERVICIOS</h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 
 </main>
 

@@ -1,0 +1,20 @@
+.service-info {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 10px;
+}
+
+.service-name {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .service-info p {
+        font-size: 18px;
+    }
+
+    .service-info .service-name {
+        font-size: 20px;
+    }
+}

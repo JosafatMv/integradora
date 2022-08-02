@@ -2,9 +2,11 @@ package com.motor.express.motorexpress.control.attendee;
 
 import com.motor.express.motorexpress.control.client.ServiceClient;
 import com.motor.express.motorexpress.control.history.ServiceHistory;
+import com.motor.express.motorexpress.control.service.ServiceService;
 import com.motor.express.motorexpress.control.user.ServiceUser;
 import com.motor.express.motorexpress.control.vehicle.ServiceVehicle;
 import com.motor.express.motorexpress.model.history.BeanHistory;
+import com.motor.express.motorexpress.model.service.BeanService;
 import com.motor.express.motorexpress.model.user.BeanUser;
 import com.motor.express.motorexpress.model.vehicle.BeanVehicle;
 
@@ -19,11 +21,11 @@ import java.util.List;
         "/client", //Get
         "/client-register", //get
         "/client-save", //POST
-        "/list-vehicles", //Get
         "/vehicle-register", //get
         "/vehicle-save", //POST
         "/vehicles-service", //Get
         "/change-status", //Get
+        "/list-services", //Get
 }
 )
 public class ServletAttendee extends HttpServlet {
@@ -148,6 +150,30 @@ public class ServletAttendee extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/home");
                         return;
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    response.sendRedirect(request.getContextPath() + "/home");
+                }
+                break;
+
+            case "/list-services":
+                try {
+                    String rfc = (String) request.getSession().getAttribute("rfc");
+                    String rol = (String) request.getSession().getAttribute("rol");
+
+                    if (request.getSession().getAttribute("rol").equals("asistente")) {
+
+                        ServiceService serviceService = new ServiceService();
+                        List<BeanService> services = serviceService.getServices();
+
+                        request.setAttribute("services", services);
+
+                        request.getRequestDispatcher("/view/attendee/list-services.jsp").forward(request, response);
+                    } else {
+                        response.sendRedirect(request.getContextPath() + "/home");
+                        return;
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                     response.sendRedirect(request.getContextPath() + "/home");
@@ -284,31 +310,24 @@ public class ServletAttendee extends HttpServlet {
                     String rol = (String) request.getSession().getAttribute("rol");
 
                     if (rol.equals("asistente")) {
-                        String rfcMechanic = request.getParameter("rfcMechanic") != null ? (request.getParameter("rfcMechanic")) : "";
-                        String plates = request.getParameter("plates") != null ? (request.getParameter("plates")) : "";
-                        String stringId = request.getParameter("historyId") != null ? (request.getParameter("historyId")) : "0";
                         String status = request.getParameter("status") != null ? (request.getParameter("status")) : "";
+                        ServiceHistory serviceHistory = new ServiceHistory();
 
-                        System.out.println(stringId);
-                        System.out.println(plates);
-                        System.out.println(status);
-                        System.out.println(rfcMechanic);
-                        int id = Integer.parseInt(stringId);
-                        System.out.println(id);
-
-//                        ServiceHistory serviceHistory = new ServiceHistory();
-//                        BeanHistory history = new BeanHistory();
-////                        history.setHistoryId(id);
-//                        BeanVehicle vehicle = new BeanVehicle();
-//                        vehicle.setOwnerRfc(clientRfc);
-//                        vehicle.setPlates(plates);
-//
-//                        history.setVehicle(vehicle);
+                        if (status.equals("start")) {
+                            String rfcMechanic = request.getParameter("rfcMechanic") != null ? (request.getParameter("rfcMechanic")) : "";
+                            String plates = request.getParameter("plates") != null ? (request.getParameter("plates")) : "";
 
 
-//                        boolean result = serviceHistory.getHistories(history,status);
-//                        response.sendRedirect("list-clients?result-save=" + (result ? "true" : "false"));
-                        response.sendRedirect("list-clients");
+                            boolean result = serviceHistory.startService(rfcMechanic, plates);
+                            response.sendRedirect("vehicles-service?start-result=" + (result ? "true" : "false"));
+                        }
+
+                        if (status.equals("end")) {
+                            String stringId = request.getParameter("historyId") != null ? (request.getParameter("historyId")) : "0";
+                            int historyId = Integer.parseInt(stringId);
+                            boolean result = serviceHistory.endService(historyId);
+                            response.sendRedirect("vehicles-service?end-result=" + (result ? "true" : "false"));
+                        }
 
                     } else {
                         response.sendRedirect(request.getContextPath() + "/home");

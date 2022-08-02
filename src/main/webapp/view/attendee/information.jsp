@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -22,7 +21,6 @@
     <!-- Custom css -->
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components/information.css">
-    <link rel="stylesheet" href="css/cliente/layout.css">
 </head>
 
 <body>
@@ -100,7 +98,8 @@
                                         <label for="email"
                                                class="text-lg-end col-lg-3 col-form-label">Correo:</label>
                                         <div class="col-lg-9">
-                                            <input type="text" disabled class="form-control" id="email" value="${user.correo}">
+                                            <input type="text" disabled class="form-control" id="email"
+                                                   value="${user.correo}">
                                         </div>
                                     </div>
                                 </div>
