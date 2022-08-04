@@ -8,13 +8,16 @@ import java.util.List;
 public class ServicePayments {
     public List<BeanPayment> getClientPayments(String rfc, String rol){
         DaoPayment paymentsDao = new DaoPayment();
-        List<BeanPayment> payments = paymentsDao.getClientPayments(rfc,rol);
-        return payments;
+        return paymentsDao.getClientPayments(rfc,rol);
     }
 
     public BeanPayment getPayment(String rol, int historyId) {
         DaoPayment paymentsDao = new DaoPayment();
-        BeanPayment payment = paymentsDao.getPayment(rol,historyId);
-        return payment;
+        return paymentsDao.getPayment(rol,historyId);
+    }
+
+    public List<BeanPayment> getPayments() {
+        DaoPayment paymentsDao = new DaoPayment();
+        return paymentsDao.getPayments();
     }
 }

@@ -1,0 +1,30 @@
+.payment-details {
+    height: 150px;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    padding-right: 5px;
+}
+
+.payment-details::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.payment-details::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.payment-details::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.payment-details::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid #e9eff4; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+    .payment-details {
+        height: 200px;
+    }
+}

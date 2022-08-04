@@ -79,5 +79,22 @@
         <url-pattern>/list-services</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ServletCashier</servlet-name>
+        <servlet-class>com.motor.express.motorexpress.control.cashier.ServletCashier</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletCashier</servlet-name>
+        <url-pattern>/list-charges</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCashier</servlet-name>
+        <url-pattern>/charge/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletCashier</servlet-name>
+        <url-pattern>/save-charge</url-pattern>
+    </servlet-mapping>
 
 </web-app>

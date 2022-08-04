@@ -1,0 +1,24 @@
+.status-paid .circle-paid,
+.status-unpaid .circle-unpaid {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.circle-paid,
+.service-status-paid {
+    background-color: #00b300;
+}
+
+.circle-unpaid,
+.service-status-unpaid {
+    background-color: #ff0000;
+}
+
+.service-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}

@@ -93,7 +93,7 @@ public class ServletClient extends HttpServlet {
                         return;
                     }
 
-                    if (request.getSession().getAttribute("rol").equals("cliente")) {
+                    if (rol.equals("cliente")) {
                         request.setAttribute("payment", payment);
                         request.getRequestDispatcher("/view/cliente/payment-details.jsp").forward(request, response);
                     }

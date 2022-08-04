@@ -49,9 +49,9 @@ public class DaoPayment {
                 payment.setVehicle(vehicle);
                 payment.setService(service);
 
-                payment.setHistoryId(rs.getString("idHistorial"));
+                payment.setHistoryId(rs.getInt("idHistorial"));
 
-                pstm2.setString(1, payment.getHistoryId());
+                pstm2.setInt(1, payment.getHistoryId());
                 ResultSet rs2 = pstm2.executeQuery();
                 int sum = 0;
                 while(rs2.next()){
@@ -59,7 +59,7 @@ public class DaoPayment {
                 }
                 payment.setProductsUsed(sum);
 
-                pstm3.setString(1, payment.getHistoryId());
+                pstm3.setInt(1, payment.getHistoryId());
                 ResultSet rs3 = pstm3.executeQuery();
                 int idStatus = 0;
                 while(rs3.next()){
@@ -87,9 +87,9 @@ public class DaoPayment {
         BeanPayment payment = new BeanPayment();
         List<BeanProduct> products = new ArrayList<>();
 
-        if (!"cliente".equals(rol)){
-            return payment;
-        }
+//        if (!"cliente".equals(rol)){
+//            return payment;
+//        }
 
         try (
                 Connection con = MySQLConnection.getConnection();
@@ -150,6 +150,7 @@ public class DaoPayment {
                 int idStatus = 0;
                 while(rs4.next()){
                     idStatus=rs4.getInt("statusId");
+                    payment.setLastDateUpdate(rs4.getDate("fechaActualizacion"));
                 }
                 payment.setStatus(statusName.getStatusName(idStatus));
 
@@ -166,5 +167,46 @@ public class DaoPayment {
 
         return payment;
 
+    }
+
+    public List<BeanPayment> getPayments() {
+        List<BeanPayment> payments = new ArrayList<>();
+
+        try (
+                Connection con = MySQLConnection.getConnection();
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM VistaHistorialServicios");
+                PreparedStatement pstm2 = con.prepareStatement("SELECT * FROM UltimoStatus WHERE historiales_id = ?")
+        ){
+
+            StatusName statusName = new StatusName();
+
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()){
+                BeanPayment payment = new BeanPayment();
+
+                payment.setHistoryId(rs.getInt("idHistorial"));
+
+                pstm2.setInt(1, payment.getHistoryId());
+                ResultSet rs2 = pstm2.executeQuery();
+                int idStatus = 0;
+                while(rs2.next()){
+                    idStatus=rs2.getInt("statusId");
+                    payment.setLastDateUpdate(rs2.getDate("fechaActualizacion"));
+                }
+                payment.setStatus(statusName.getStatusName(idStatus));
+                payment.setTotalAmount(rs.getFloat("monto_total"));
+                payment.setRfc(rs.getString("rfc"));
+                payment.setMechanic(rs.getString("NombreMecanico"));
+                payment.setStartDate(rs.getDate("fecha_inicio"));
+                payment.setEndDate(rs.getDate("fecha_fin"));
+
+                payments.add(payment);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return payments;
     }
 }

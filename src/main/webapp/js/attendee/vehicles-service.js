@@ -77,7 +77,6 @@ form.addEventListener('submit', (e) => {
         }
 
         if (statusToChange === 'end') {
-            console.log(idCar)
             historyInput.value = idCar;
             Swal.fire({
                 title: 'FINALIZAR SERVICIO',

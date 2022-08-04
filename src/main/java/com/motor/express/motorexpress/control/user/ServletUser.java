@@ -37,6 +37,10 @@ public class ServletUser extends HttpServlet {
                     request.getRequestDispatcher("/view/attendee/index.jsp").forward(request,response);
                 }
 
+                if (request.getSession().getAttribute("rol").equals("caja")){
+                    request.getRequestDispatcher("/view/cashier/index.jsp").forward(request,response);
+                }
+
                 break;
 
             case "/information":
@@ -55,6 +59,10 @@ public class ServletUser extends HttpServlet {
 
                     if (rol.equals("asistente")){
                         request.getRequestDispatcher("/view/attendee/information.jsp").forward(request,response);
+                    }
+
+                    if (rol.equals("caja")){
+                        request.getRequestDispatcher("/view/cashier/information.jsp").forward(request,response);
                     }
 
                 } catch (Exception e) {

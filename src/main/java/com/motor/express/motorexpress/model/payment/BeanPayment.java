@@ -19,12 +19,13 @@ public class BeanPayment {
     private Date startDate;
     private Date endDate;
     private String status;
-    private String historyId;
+    private int historyId;
+    private Date lastDateUpdate;
 
     public BeanPayment() {
     }
 
-    public BeanPayment(String rfc, BeanVehicle vehicle, float totalAmount, int productsUsed, List<BeanProduct> products, BeanService service, String mechanic, Date startDate, Date endDate, String status, String historyId) {
+    public BeanPayment(String rfc, BeanVehicle vehicle, float totalAmount, int productsUsed, List<BeanProduct> products, BeanService service, String mechanic, Date startDate, Date endDate, String status, int historyId, Date lastDateUpdate) {
         this.rfc = rfc;
         this.vehicle = vehicle;
         this.totalAmount = totalAmount;
@@ -36,6 +37,7 @@ public class BeanPayment {
         this.endDate = endDate;
         this.status = status;
         this.historyId = historyId;
+        this.lastDateUpdate = lastDateUpdate;
     }
 
     public String getRfc() {
@@ -118,11 +120,19 @@ public class BeanPayment {
         this.status = status;
     }
 
-    public String getHistoryId() {
+    public int getHistoryId() {
         return historyId;
     }
 
-    public void setHistoryId(String historyId) {
+    public void setHistoryId(int historyId) {
         this.historyId = historyId;
+    }
+
+    public Date getLastDateUpdate() {
+        return lastDateUpdate;
+    }
+
+    public void setLastDateUpdate(Date lastDateUpdate) {
+        this.lastDateUpdate = lastDateUpdate;
     }
 }

@@ -1,0 +1,19 @@
+.credit-card {
+    background: #e9eff4;
+    /* background: #fff; */
+    border-radius: 16px;
+}
+
+.credit-card .bar {
+    background: #212529;
+    width: 100%;
+    height: 20px;
+}
+
+.credit-card input {
+    background: #dee5eb;
+}
+
+.credit-card input:focus {
+    background: #dee5eb;
+}
